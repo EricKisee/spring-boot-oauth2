@@ -15,8 +15,12 @@
 <body>
 	<h1>Demo</h1>
 	<div class="container"></div>
+    <div class="container text-danger error"></div>
     <div class="container unauthenticated">
         With GitHub: <a href="/oauth2/authorization/github">click here</a>
+    </div>
+    <div class="container unauthenticated">
+      With Google: <a href="/oauth2/authorization/google">click here</a>
     </div>
     <div class="container authenticated" style="display:none">
         Logged in as: <span id="user"></span>
@@ -53,6 +57,14 @@
             }
             }
         }
+        });
+
+        $.get("/error", function(data) {
+            if (data) {
+                $(".error").html(data);
+            } else {
+                $(".error").html('');
+            }
         });
     </script>
 </body>
