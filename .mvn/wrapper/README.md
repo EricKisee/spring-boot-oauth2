@@ -1,0 +1,25 @@
+# Spring Boot and OAuth2
+
+
+This project shows how to implement social login using OAuth 2.0 and Spring Boot.
+
+It uses GitHub and Google as authentication providers with Spring Security on the back end.
+
+## Before Running the Application
+***
+
+To use GitHub’s OAuth 2.0 authentication system for login, you must first [Add a new GitHub app](https://github.com/settings/developers).
+
+Select "New OAuth App" and then the "Register a new OAuth application" page is presented. Enter an app name and description. Then, enter your app’s home page, which should be http://localhost:8080, in this case. Finally, indicate the Authorization callback URL as http://localhost:8080/login/oauth2/code/github and click Register Application.
+
+Then configure application.yml
+
+`spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: github-client-id
+            clientSecret: github-client-secret
+# ...`
